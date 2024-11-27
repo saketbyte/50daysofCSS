@@ -6,19 +6,176 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  overflow: hidden;
-  background-color: #fae188;
+  background-color: #ffffffd8;
   color: #000000;
-  display: flex;
   align-items: center;
-  overflow: hidden;
+  /* overflow-x: hidden; */
+  height: 80%;
+  width: 80%;
 }
 
+
+
+/* container will rotate when it has the class show now */
 .container {
-  text-align: center;
+  margin: 16px;
+  /* this is the pivot from where it rotates. */
+  transform-origin: top left;
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  width: 100vw;
+  min-height: 80vh;
+  padding: 50px;
+  /* glass effect */
+  background: rgba(106, 233, 45, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.8px);
+  -webkit-backdrop-filter: blur(2.8px);
+  border: 1px solid rgba(105, 233, 45, 0.11);
 }
 
-.progress-container {
-  display: flex;
-  justify-content: space-between;
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+}
+
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+
+.circle {
+
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.5s linear;
+
+  /* glass effect */
+  background: rgba(255, 255, 255, 0.77);
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgb(104, 98, 98);
+}
+
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+
+.circle button {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: #000000
+}
+
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  left: 60%;
+}
+
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.container.show-nav+nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 10px;
+  z-index: 100;
+}
+
+nav ul {
+  /* to remove bullets */
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  margin: 25px 0;
+  transform: translateX(-150%);
+  transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+nav a {
+  color: #fafafa;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+nav a:hover {
+  color: #000000;
+  font-weight: bold;
+}
+
+
+.container.container.show-nav+nav {
+
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+
+.content img {
+  max-height: 80vh;
+  border-radius: 40px;
+}
+
+
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
 }
