@@ -14,28 +14,36 @@ body {
   width: 80%;
 }
 
-
-
-/* container will rotate when it has the class show now */
+/* Glass effect: Frosted glass look using transparency, blur, and shadows */
 .container {
   margin: 16px;
-  /* this is the pivot from where it rotates. */
+  /* This is the pivot from where it rotates */
   transform-origin: top left;
+  /* Pivot point for rotation */
   transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* Smooth rotation */
   width: 100vw;
   min-height: 80vh;
   padding: 50px;
-  /* glass effect */
+
+  /* Glass effect properties */
   background: rgba(106, 233, 45, 0.21);
+  /* Transparent background */
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* Soft shadow */
   backdrop-filter: blur(2.8px);
+  /* Blur effect */
   -webkit-backdrop-filter: blur(2.8px);
+  /* Blur for WebKit browsers */
   border: 1px solid rgba(105, 233, 45, 0.11);
+  /* Semi-transparent border */
 }
 
+/* Animation: Smooth rotation of container and navigation links */
 .container.show-nav {
   transform: rotate(-20deg);
+  /* Rotate container */
 }
 
 .circle-container {
@@ -46,33 +54,29 @@ body {
 
 .container.show-nav .circle {
   transform: rotate(-70deg);
+  /* Rotate circle further */
 }
-
-.container.show-nav {
-  transform: rotate(-20deg);
-}
-
 
 .circle {
-
   height: 200px;
   width: 200px;
   border-radius: 50%;
   position: relative;
   transition: transform 0.5s linear;
+  /* Smooth circle rotation */
 
-  /* glass effect */
+  /* Glass effect properties */
   background: rgba(255, 255, 255, 0.77);
+  /* Transparent background */
   box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+  /* Soft shadow */
   backdrop-filter: blur(10px);
+  /* Blur effect */
   -webkit-backdrop-filter: blur(10px);
+  /* Blur for WebKit browsers */
   border: 1px solid rgb(104, 98, 98);
+  /* Border for definition */
 }
-
-.container.show-nav .circle {
-  transform: rotate(-70deg);
-}
-
 
 .circle button {
   position: absolute;
@@ -83,7 +87,7 @@ body {
   background: transparent;
   border: 0;
   font-size: 26px;
-  color: #000000
+  color: #000000;
 }
 
 .circle button:focus {
@@ -98,19 +102,10 @@ body {
   top: 60%;
   transform: rotate(90deg);
   transform-origin: top left;
+  /* Pivot point for close button rotation */
 }
 
-.container.show-nav {
-  transform: rotate(-20deg);
-}
-
-.container.show-nav+nav li {
-  transform: translateX(0);
-  transition-delay: 0.3s;
-}
-
-
-
+/* Sliding effect for navigation links */
 nav {
   position: fixed;
   bottom: 40px;
@@ -119,7 +114,7 @@ nav {
 }
 
 nav ul {
-  /* to remove bullets */
+  /* To remove bullets */
   list-style-type: none;
   padding-left: 30px;
 }
@@ -127,8 +122,18 @@ nav ul {
 nav ul li {
   text-transform: uppercase;
   margin: 25px 0;
+
+  /* Initial off-screen position for sliding effect */
   transform: translateX(-150%);
   transition: transform 0.4s ease-in;
+  /* Smooth entry */
+}
+
+.container.show-nav+nav li {
+  transform: translateX(0);
+  /* Bring links into view */
+  transition-delay: 0.3s;
+  /* Delayed start for smoothness */
 }
 
 nav ul li i {
@@ -147,19 +152,10 @@ nav a:hover {
   font-weight: bold;
 }
 
-
-.container.container.show-nav+nav {
-
-  transform: translateX(0);
-  transition-delay: 0.3s;
-}
-
-
 .content img {
   max-height: 80vh;
   border-radius: 40px;
 }
-
 
 .content {
   max-width: 1000px;
